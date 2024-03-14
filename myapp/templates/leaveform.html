@@ -1,0 +1,134 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>leaveform</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
+  
+   <style>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+
+body {
+  background-color: #ddd;
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+form {
+  padding-left:25px;
+  padding-right:25px;
+  padding-top:60px;
+  margin: 12px auto;
+  border: 2px solid #032f3e;
+  border-radius: 20px;
+  position:relative;
+  z-index:1;
+}
+
+form > div{
+  position:absolute;
+  top:0;
+  left:50%;
+  padding:0 20px;
+  transform:translate(-50%,-50%);
+  background-color:#032f3e;
+  border: 2px solid #032f3e;;
+  border-radius: 20px;
+  text-align:center;
+}
+
+form > div > img{
+  filter:invert(1);
+  width:100px;
+}
+
+form > input,
+form > textarea {
+  padding: 12px;
+  margin: 12px auto;
+  border: 1px solid #ccc;
+  color: white;
+  background-color: #032f3e;
+  border-radius: 4px;
+  display: block;
+  width: 70vw;
+  font-size: 25px;
+}
+
+form > textarea{
+  height:100px;
+  resize:none;
+}
+
+form > input[type="submit"] {
+  max-width: 20vw;
+  padding-left: 1%;
+  padding-right: 1%;
+  cursor: pointer;
+  transition: 0.35s;
+}
+
+form > input[type="submit"]:hover {
+  background-color: #555;
+}
+
+h2{
+  font-size:45px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  display: flex;
+  position: absolute;
+  padding: 20px;
+  margin-top:-40%;
+  /* background-color: black; */
+  color: black;
+  
+}
+
+
+
+
+    
+  </style>
+  </head>
+
+
+  <body>
+    <h2>Leave Form Application</h2>
+    
+
+<br>
+<br>
+<br>
+<br>
+    <form action="/leaveform/" method="POST">
+      {% csrf_token %}
+      <div>
+      <img src="https://cdn4.iconfinder.com/data/icons/basic-user-interface-elements/700/mail-letter-offer-256.png" alt="icon">
+       </div>
+
+
+      <input type="text" placeholder="Name (required)" required  value="{{name}}" readonly name="name">
+      <input type="text" placeholder="Date (required)" required name="date">
+      <input type="text" placeholder="Leave type(fullday,halfday)" required name="type">
+      <textarea placeholder="Reason (required)" required name="reason"></textarea>
+      <input type="submit" value="Send">
+    </form>
+  </body>
+
+
+
+
+
+
+
+
+
